@@ -4,6 +4,9 @@ import json
 
 app = Flask(__name__)
 
+#to test the server run
+
+
 #all categories
 @app.route('/categorie', methods=['GET'])
 def show_category():

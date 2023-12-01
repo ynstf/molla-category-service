@@ -27,4 +27,4 @@ jobs:
     - name: Run Tests
     #will fix
       run: |
-        python server.py
+        python -m unittest test.py
