@@ -9,7 +9,7 @@ class TestServer(unittest.TestCase):
     def test_server_runs(self):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b"Welcome", response.data)  # Adjust this based on your server's home page content
+        self.assertIn(b"Welcome", response.data) 
 
 if __name__ == '__main__':
     unittest.main()

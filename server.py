@@ -5,7 +5,9 @@ import json
 app = Flask(__name__)
 
 #to test the server run
-
+@app.route('/', methods=['GET'])
+def home():
+    return 'Welcome'
 
 #all categories
 @app.route('/categorie', methods=['GET'])
