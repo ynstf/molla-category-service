@@ -3,6 +3,7 @@ import requests
 import json
 
 app = Flask(__name__)
+product_host = 'product'
 
 #to test the server run
 @app.route('/', methods=['GET'])
@@ -13,7 +14,7 @@ def home():
 @app.route('/categorie', methods=['GET'])
 def show_category():
     #get all categories from product api
-    cat_response = requests.get("http://127.0.0.1:5555/all_cate")
+    cat_response = requests.get(f"http://{product_host}:5555/all_cate")
     cat_data = cat_response.json()
     #return the categories
     result = {
@@ -25,7 +26,7 @@ def show_category():
 @app.route('/categorie/<id>', methods=['GET'])
 def product_category(id):
     #get the category of product (id) from product api
-    cat_response = requests.get(f"http://127.0.0.1:5555/productcategories/{id}/")
+    cat_response = requests.get(f"http://{product_host}:5555/productcategories/{id}/")
     # Check if the request was successful (status code 200)
     if cat_response.status_code == 200:
         # Extract JSON content from the response
@@ -42,7 +43,7 @@ def product_category(id):
 @app.route('/search', methods=['GET'])
 def search_category():
     # get all categories from product api
-    products = json.loads(requests.get("http://127.0.0.1:5555/showproducts").content.decode('utf-8'))
+    products = json.loads(requests.get(f"http://{product_host}:5555/showproducts").content.decode('utf-8'))
     # get the category arg (category id)
     try :
         # convert to int
