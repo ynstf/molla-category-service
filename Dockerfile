@@ -30,7 +30,7 @@ RUN /opt/venv/bin/pip install pip --upgrade && \
     /opt/venv/bin/pip install -r requirements.txt && \
     chmod +x entrypoint.sh
 
-EXPOSE : 5500
+EXPOSE 5500
 
 #CMD [ "python3", "manage.py", "runserver", "0.0.0.0:8000"]
 
